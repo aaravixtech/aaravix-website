@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOUs | Aaravix Technologies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./FondStyles/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.jpeg" alt="Aaravix Logo">
+        <h1>Aaravix Technologies</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"> Home</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ourteam.html">Our Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="milestone.html" class="active">Milestone</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Mobile Hamburger -->
+      <div class="hamburger">&#9776;</div>
+    </nav>
+  </header>
+
+<div class="container">
+    <h1>MOUs Signed by Aaravix</h1>
+
+    <div class="mou-card">
+        <div class="mou-info">
+            <h2>St. Joseph College of Engineering, Sriperumbudur</h2>
+            <p>Collaboration for internships, workshops, and skill development programs.</p>
+            <p><strong>Location:</strong> Near Toll Plaza, Nemili, Sriperumbudur, Tamil Nadu</p>
+            <p><strong>Date Signed:</strong> 02nd September 2025</p>
+            <p><strong>Certificate Provided:</strong> Yes</p>
+        </div>
+        <button class="view-btn" onclick="openModal(0)">View Details</button>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div id="mouModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-text">
+            <h2>St. Joseph College of Engineering</h2>
+            <p>Our partnership with St. Joseph College focuses on:</p>
+            <ul>
+                <li>Student internships and real-world projects.</li>
+                <li>Workshops on emerging technologies.</li>
+                <li>Skill development and certification programs.</li>
+                <li>Career guidance and mentorship opportunities.</li>
+            </ul>
+            <p>This collaboration empowers students to gain hands-on experience and prepares them for the industry. Certificates of participation are provided for all programs.</p>
+        </div>
+        <div class="modal-images">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="slide"><img src="C:\Users\Deshu\Downloads\mou1.jpeg" alt="MOU 1"></div>
+            <div class="slide"><img src="C:\Users\Deshu\Downloads\mou2.jpeg" alt="MOU 2"></div>
+            <div class="slide"><img src="C:\Users\Deshu\Downloads\mou3.jpeg" alt="MOU 3"></div>
+            <div class="slide"><img src="C:\Users\Deshu\Downloads\mou4.jpeg" alt="MOU 4"></div>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Aaravix Technologies</h4>
+        <p>Empowering students and businesses with innovative digital solutions, training, and global opportunities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ourteam.html">Our Team</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="studenttraining.html">Student Training</a></li>
+          <li><a href="digitalsolutions.html">Digital Solutions</a></li>
+          <li><a href="globalservice.html">Global Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contactaaravix@gmail.com">contactaaravix@gmail.com</a></li>
+          <li><a href="milestone.html">Milestones</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-social-icons">
+        <a href="https://www.linkedin.com/company/107547832/admin/dashboard/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/916382928704" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/aaravix_tech_official?igsh=MXdnOWgwZXdpa2Q3Zw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Aaravix Technologies | All Rights Reserved</p>
+    </div>
+</footer>
+
+<script>
+let slideIndex = 0;
+
+function openModal(index) {
+    document.getElementById('mouModal').style.display = 'flex';
+    slideIndex = index;
+    showSlide(slideIndex);
+}
+
+function closeModal() {
+    document.getElementById('mouModal').style.display = 'none';
+}
+
+function changeSlide(n) {
+    slideIndex += n;
+    showSlide(slideIndex);
+}
+
+function showSlide(n) {
+    let slides = document.querySelectorAll('.slide');
+    if (n >= slides.length) slideIndex = 0;
+    if (n < 0) slideIndex = slides.length - 1;
+    slides.forEach(slide => slide.style.display = 'none');
+    slides[slideIndex].style.display = 'block';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    let modal = document.getElementById('mouModal');
+    if(event.target == modal) closeModal();
+}
+</script>
+
+<script src="script.js" defer></script>
+</body>
+</html>

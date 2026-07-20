@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now | Aaravix Technologies</title>
+  <meta name="description" content="Apply for internships and career opportunities at Aaravix Technologies. Submit your application today.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./FondStyles/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.jpeg" alt="Aaravix Logo">
+        <h1>Aaravix Technologies</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ourteam.html">Our Team</a></li>
+        <li><a href="careers.html" class="active">Careers</a></li>
+        <li><a href="milestone.html">Milestone</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">&#9776;</div>
+    </nav>
+  </header>
+
+  <!-- Apply Hero Banner -->
+  <section class="apply-hero">
+    <div class="apply-hero-overlay"></div>
+    <div class="apply-hero-content">
+      <span class="apply-badge">🚀 Start Your Journey</span>
+      <h2 id="hero-title">Apply for an Internship</h2>
+      <p>Take the first step towards building your future with Aaravix Technologies. Fill in the details below to submit your application.</p>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="apply-section">
+    <div class="apply-container">
+      <!-- Internship Details Card (populated via JS from URL params) -->
+      <div class="internship-detail-card" id="internship-detail-card" style="display:none;">
+        <div class="detail-card-header">
+          <span class="detail-card-icon">🎓</span>
+          <h3 id="detail-title"></h3>
+        </div>
+        <p class="detail-description" id="detail-desc"></p>
+      </div>
+
+      <div class="apply-form-header">
+        <h2>Application Form</h2>
+        <p>Please fill out all the required fields carefully. We'll review your application and get back to you soon.</p>
+      </div>
+
+      <form id="apply-form" class="apply-form" enctype="multipart/form-data">
+        <!-- Name Row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name <span class="required">*</span></label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input type="text" id="first-name" name="first_name" placeholder="Enter your first name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name <span class="required">*</span></label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input type="text" id="last-name" name="last_name" placeholder="Enter your last name" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="apply-email">Email Address <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input type="email" id="apply-email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+
+        <!-- Resume Upload -->
+        <div class="form-group">
+          <label for="resume">Upload Resume <span class="required">*</span></label>
+          <div class="file-upload-wrapper" id="file-upload-wrapper">
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+            <div class="file-upload-label">
+              <span class="upload-icon">📄</span>
+              <span class="upload-text">Drag & drop your resume or <strong>browse files</strong></span>
+              <span class="upload-hint">PDF, DOC, DOCX (Max 5MB)</span>
+            </div>
+            <div class="file-chosen" id="file-chosen" style="display:none;">
+              <span class="file-icon">✅</span>
+              <span class="file-name" id="file-name"></span>
+              <button type="button" class="file-remove" id="file-remove">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Known Dropdown -->
+        <div class="form-group">
+          <label for="skills">Skills Known <span class="required">*</span></label>
+          <div class="input-wrapper select-wrapper">
+            <span class="input-icon">💡</span>
+            <select id="skills" name="skills" required>
+              <option value="" disabled selected>Select your primary skill</option>
+              <option value="HTML & CSS">HTML & CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="React.js">React.js</option>
+              <option value="Node.js">Node.js</option>
+              <option value="Python">Python</option>
+              <option value="Data Analytics">Data Analytics</option>
+              <option value="Machine Learning">Machine Learning</option>
+              <option value="SQL">SQL</option>
+              <option value="Power BI">Power BI</option>
+              <option value="Cloud Computing (AWS)">Cloud Computing (AWS)</option>
+              <option value="Microsoft Office">Microsoft Office</option>
+              <option value="Java">Java</option>
+              <option value="C / C++">C / C++</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn apply-submit-btn" id="apply-submit-btn">
+          <span class="btn-text">Submit Application</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </form>
+
+      <!-- Success Message (hidden by default) -->
+      <div class="apply-success" id="apply-success" style="display:none;">
+        <div class="success-icon">🎉</div>
+        <h3>Application Submitted!</h3>
+        <p>Thank you for applying. Our team will review your application and reach out to you soon.</p>
+        <a href="careers.html" class="btn">Back to Careers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Aaravix Technologies</h4>
+        <p>Empowering students and businesses with innovative digital solutions, training, and global opportunities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ourteam.html">Our Team</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="studenttraining.html">Student Training</a></li>
+          <li><a href="digitalsolutions.html">Digital Solutions</a></li>
+          <li><a href="globalservice.html">Global Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contactaaravix@gmail.com">contactaaravix@gmail.com</a></li>
+          <li><a href="milestone.html">Milestones</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-social-icons">
+        <a href="https://www.linkedin.com/company/107547832/admin/dashboard/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/916382928704" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/aaravix_tech_official?igsh=MXdnOWgwZXdpa2Q3Zw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Aaravix Technologies | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    // ===== Read URL parameters and populate internship details =====
+    const urlParams = new URLSearchParams(window.location.search);
+    const internTitle = urlParams.get('title');
+    const internDesc = urlParams.get('desc');
+
+    if (internTitle) {
+      // Update hero title
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) heroTitle.textContent = 'Apply for ' + internTitle;
+
+      // Update page title
+      document.title = internTitle + ' — Apply | Aaravix Technologies';
+
+      // Show and populate internship detail card
+      const detailCard = document.getElementById('internship-detail-card');
+      document.getElementById('detail-title').textContent = internTitle;
+      document.getElementById('detail-desc').textContent = internDesc || '';
+      detailCard.style.display = 'block';
+    }
+
+    // ===== File upload display logic =====
+    const fileInput = document.getElementById('resume');
+    const fileUploadWrapper = document.getElementById('file-upload-wrapper');
+    const fileChosen = document.getElementById('file-chosen');
+    const fileName = document.getElementById('file-name');
+    const fileRemove = document.getElementById('file-remove');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', function () {
+        if (this.files && this.files.length > 0) {
+          fileName.textContent = this.files[0].name;
+          fileChosen.style.display = 'flex';
+          fileUploadWrapper.classList.add('has-file');
+        }
+      });
+
+      fileRemove.addEventListener('click', function () {
+        fileInput.value = '';
+        fileChosen.style.display = 'none';
+        fileUploadWrapper.classList.remove('has-file');
+      });
+
+      // Drag and drop visual effect
+      fileUploadWrapper.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileUploadWrapper.classList.add('drag-over');
+      });
+
+      fileUploadWrapper.addEventListener('dragleave', () => {
+        fileUploadWrapper.classList.remove('drag-over');
+      });
+
+      fileUploadWrapper.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileUploadWrapper.classList.remove('drag-over');
+        if (e.dataTransfer.files.length > 0) {
+          fileInput.files = e.dataTransfer.files;
+          fileName.textContent = e.dataTransfer.files[0].name;
+          fileChosen.style.display = 'flex';
+          fileUploadWrapper.classList.add('has-file');
+        }
+      });
+    }
+
+    // ===== Form submission feedback =====
+    const applyForm = document.getElementById('apply-form');
+    const applySuccess = document.getElementById('apply-success');
+    
+    // Dynamically detect API BASE URL
+    const IS_LOCAL_DEV = window.location.protocol === 'file:' || 
+        (window.location.protocol === 'http:' && window.location.port !== '8000' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
+    const API_BASE = IS_LOCAL_DEV ? 'http://localhost:8000/api' : '/api';
+
+    if (applyForm) {
+      applyForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('apply-submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Submitting...';
+        submitBtn.disabled = true;
+
+        try {
+            const formData = new FormData(applyForm);
+            
+            const response = await fetch(`${API_BASE}/applications/`, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.detail || 'Failed to submit application');
+            }
+
+            // Animate out form
+            applyForm.style.opacity = '0';
+            applyForm.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+              applyForm.style.display = 'none';
+              applySuccess.style.display = 'block';
+              applySuccess.style.animation = 'fadeSlideUp 0.6s ease forwards';
+            }, 400);
+
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('There was an error submitting your application: ' + error.message);
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
